@@ -1,0 +1,142 @@
+﻿<Window x:Class="Rar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rar"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Height="700" Width="1200">
+    <Border Background="#272537" CornerRadius="25">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            
+            <Thumb x:Name="headerThumb"
+                Grid.RowSpan="6"
+                Grid.ColumnSpan="2"
+                Opacity="0"
+                Background="{x:Null}"
+                Foreground="{x:Null}"
+                DragDelta="headerThumb_DragDelta"/>
+
+            <TextBlock Text="RAR"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="42"
+                       FontFamily="Bahnschrift Condensed"
+                       Margin="20,0,0,0"/>
+
+            <Button x:Name="CloseButton"
+                    Click="CloseButton_Click"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="10,5"
+                    Width="40"
+                    Height="40"
+                    FontSize="32"
+                    FontFamily="Bahnschrift Condensed">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <StackPanel>
+                    <Image Source="/Pictures/control/close.png" StretchDirection="DownOnly"/>
+                </StackPanel>
+            </Button>
+            
+            <Button x:Name="CollapseButton"
+                    Click="CollapseButton_Click"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="50,5"
+                    Width="40"
+                    Height="40"
+                    FontSize="32"
+                    FontFamily="Bahnschrift Condensed">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <StackPanel>
+                    <Image Source="/Pictures/control/collapse.png" StretchDirection="DownOnly"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="HomeButton"
+                    Style="{StaticResource MenuButton}"
+                    Content="   Главная"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Foreground="White"
+                    FontSize="32"
+                    FontFamily="Bahnschrift Condensed"/>
+
+            <Button x:Name="GoodsButton"
+                    Style="{StaticResource MenuButton}"
+                    Content="   Товары"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Foreground="White"
+                    FontSize="32"
+                    FontFamily="Bahnschrift Condensed"/>
+            
+            <Button x:Name="StorageButton"
+                    Style="{StaticResource MenuButton}"
+                    Content="   Склады"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Foreground="White"
+                    FontSize="32"
+                    FontFamily="Bahnschrift Condensed"/>
+
+            <Button x:Name="ClientButton"
+                    Style="{StaticResource MenuButton}"
+                    Content="   Клиенты"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Foreground="White"
+                    FontSize="32"
+                    FontFamily="Bahnschrift Condensed"/>
+
+            <Button x:Name="OrdersButton"
+                    Style="{StaticResource MenuButton}"
+                    Content="   Заказы"
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Foreground="White"
+                    FontSize="32"
+                    FontFamily="Bahnschrift Condensed"/>
+
+            <Frame x:Name="MainFrame"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Grid.RowSpan="6"
+                   NavigationUIVisibility="Hidden"/>
+
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8ceff2770c78441eacb7662c88a96523" Name="Diagram1">
+        <EntityTypeShape EntityType="RarModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RarModel.Заказ" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RarModel.Категория" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="RarModel.Клиент" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="RarModel.Размещение" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RarModel.Склад" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RarModel.Содержимое_заказа" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RarModel.Товар" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="RarModel.FK__Заказ__Код_клиен__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="RarModel.FK__Содержимо__Номер__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="RarModel.FK__Товар__Код_катег__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="RarModel.FK__Размещени__Код_т__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="RarModel.FK__Размещени__Номер__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="RarModel.FK__Содержимо__Код_т__34C8D9D1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
