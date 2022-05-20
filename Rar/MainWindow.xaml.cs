@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rar.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,8 +25,8 @@ namespace Rar
         public MainWindow()
         {
             InitializeComponent();
-            HomeButton.Background = new SolidColorBrush(Color.FromRgb(34, 32, 47));
         }
+
         private void headerThumb_DragDelta(object sender, DragDeltaEventArgs e)
         {
             Left = Left + e.HorizontalChange;
@@ -40,6 +41,33 @@ namespace Rar
         private void CollapseButton_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
+        }
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Grid.SetRow(SelectedButtonFrame, 1);
+            MainFrame.Navigate(null);
+        }
+        private void GoodsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Grid.SetRow(SelectedButtonFrame, 2);
+            MainFrame.Navigate(null);
+        }
+        private void StorageButton_Click(object sender, RoutedEventArgs e)
+        {
+            Grid.SetRow(SelectedButtonFrame, 3);
+            MainFrame.Navigate(new StoragePage());
+        }
+
+        private void ClientButton_Click(object sender, RoutedEventArgs e)
+        {
+            Grid.SetRow(SelectedButtonFrame, 4);
+            MainFrame.Navigate(null);
+        }
+
+        private void OrdersButton_Click(object sender, RoutedEventArgs e)
+        {
+            Grid.SetRow(SelectedButtonFrame, 5);
+            MainFrame.Navigate(null);
         }
     }
 }

@@ -9,7 +9,7 @@
         Background="Transparent"
         ResizeMode="NoResize"
         AllowsTransparency="True"
-        Height="700" Width="1200">
+        Height="700" Width="1300">
     <Border Background="#272537" CornerRadius="25">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -30,6 +30,7 @@
                 Grid.RowSpan="6"
                 Grid.ColumnSpan="2"
                 Opacity="0"
+                Panel.ZIndex="-2"
                 Background="{x:Null}"
                 Foreground="{x:Null}"
                 DragDelta="headerThumb_DragDelta"/>
@@ -86,57 +87,65 @@
                 </StackPanel>
             </Button>
 
+            <Frame x:Name="SelectedButtonFrame" Background="#22202f" Grid.Row="1" Panel.ZIndex="-3"/>
+
             <Button x:Name="HomeButton"
+                    Click="HomeButton_Click"
                     Style="{StaticResource MenuButton}"
-                    Content="   Главная"
+                    Content="        Главная"
                     Grid.Row="1"
                     Grid.Column="0"
                     Foreground="White"
-                    FontSize="32"
+                    FontSize="28"
                     FontFamily="Bahnschrift Condensed"/>
 
             <Button x:Name="GoodsButton"
+                    Click="GoodsButton_Click"
                     Style="{StaticResource MenuButton}"
-                    Content="   Товары"
+                    Content="        Товары"
                     Grid.Row="2"
                     Grid.Column="0"
                     Foreground="White"
-                    FontSize="32"
+                    FontSize="28"
                     FontFamily="Bahnschrift Condensed"/>
             
             <Button x:Name="StorageButton"
                     Style="{StaticResource MenuButton}"
-                    Content="   Склады"
+                    Click="StorageButton_Click"
+                    Content="        Склады"
                     Grid.Row="3"
                     Grid.Column="0"
                     Foreground="White"
-                    FontSize="32"
+                    FontSize="28"
                     FontFamily="Bahnschrift Condensed"/>
 
             <Button x:Name="ClientButton"
+                    Click="ClientButton_Click"
                     Style="{StaticResource MenuButton}"
-                    Content="   Клиенты"
+                    Content="        Клиенты"
                     Grid.Row="4"
                     Grid.Column="0"
                     Foreground="White"
-                    FontSize="32"
+                    FontSize="28"
                     FontFamily="Bahnschrift Condensed"/>
 
             <Button x:Name="OrdersButton"
+                    Click="OrdersButton_Click"
                     Style="{StaticResource MenuButton}"
-                    Content="   Заказы"
+                    Content="        Заказы"
                     Grid.Row="5"
                     Grid.Column="0"
                     Foreground="White"
-                    FontSize="32"
+                    FontSize="28"
                     FontFamily="Bahnschrift Condensed"/>
 
             <Frame x:Name="MainFrame"
-                   Grid.Row="1"
+                   Grid.Row="0"
                    Grid.Column="1"
-                   Grid.RowSpan="6"
+                   Grid.RowSpan="7"
+                   Panel.ZIndex="-1"
                    NavigationUIVisibility="Hidden"/>
-
+            
         </Grid>
     </Border>
 </Window>

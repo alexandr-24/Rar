@@ -63,6 +63,7 @@
           <Property Name="Адрес_склада" Type="nvarchar" MaxLength="100" />
           <Property Name="Вместительность" Type="nvarchar" MaxLength="100" />
           <Property Name="Зав_складом" Type="nvarchar" MaxLength="100" />
+          <Property Name="Фото" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Содержимое_заказа">
           <Key>
@@ -260,6 +261,7 @@
           <Property Name="Вместительность" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Зав_складом" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Размещение" Relationship="Self.FK__Размещени__Номер__2C3393D0" FromRole="Склад" ToRole="Размещение" />
+          <Property Name="Фото" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Содержимое_заказа">
           <Key>
@@ -456,6 +458,7 @@
           <EntitySetMapping Name="Склад">
             <EntityTypeMapping TypeName="RarModel.Склад">
               <MappingFragment StoreEntitySet="Склад">
+                <ScalarProperty Name="Фото" ColumnName="Фото" />
                 <ScalarProperty Name="Номер_склада" ColumnName="Номер_склада" />
                 <ScalarProperty Name="Адрес_склада" ColumnName="Адрес_склада" />
                 <ScalarProperty Name="Вместительность" ColumnName="Вместительность" />

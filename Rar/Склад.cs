@@ -24,6 +24,7 @@ namespace Rar
         public string Адрес_склада { get; set; }
         public string Вместительность { get; set; }
         public string Зав_складом { get; set; }
+        public string Фото { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Размещение> Размещение { get; set; }
