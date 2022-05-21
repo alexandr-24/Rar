@@ -12,7 +12,14 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-
+        <TextBox x:Name="SearchTB"
+                 Style="{StaticResource SearchTextBox}"
+                 Width="250"
+                 Height="50"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"
+                 Margin="20" TextChanged="SearchTB_TextChanged"/>
+        
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
             <StackPanel Margin="26.5,0">
                 <ItemsControl x:Name="ListViewStorage" ItemsSource="{Binding Склад}">

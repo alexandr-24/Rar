@@ -21,5 +21,50 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <Style TargetType="TextBox" x:Key="SearchTextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="10" Background="#353340" Width="200" Height="40">
+                            <Grid>
+                                <Rectangle StrokeThickness="1"/>
+                                <TextBox Margin="1"
+                                         FontSize="18"
+                                         FontFamily="Bahnschrift Condensed"
+                                         Text="{TemplateBinding Text}"
+                                         BorderThickness="0"
+                                         Background="Transparent"
+                                         VerticalContentAlignment="Center"
+                                         Padding="5"
+                                         Foreground="#CFCFCF"
+                                         x:Name="SearchTB"/>
+
+                                <TextBlock IsHitTestVisible="False"
+                                           Text="Поиск"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
+                                           Margin="10,0,0,0"
+                                           FontSize="18"
+                                           FontFamily="Bahnschrift Condensed"
+                                           Foreground="DarkGray"
+                                           Grid.Column="1">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=SearchTB}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                            <Setter Property="Visibility" Value="Hidden"/>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

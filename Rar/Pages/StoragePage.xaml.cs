@@ -29,5 +29,25 @@ namespace Rar.Pages
             }
                 
         }
+
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox x = (TextBox)SearchTB.Template.FindName("SearchTB", SearchTB);
+            if (x.Text == "")
+            {
+                using (RarEntities context = new RarEntities())
+                {
+                    ListViewStorage.ItemsSource = context.Склад.ToList();
+                }
+            }
+            else
+            {
+                using (RarEntities context = new RarEntities())
+                {
+                
+                    ListViewStorage.ItemsSource = context.Database.SqlQuery<Склад>("SELECT * FROM Склад WHERE Адрес_склада LIKE '%" + x.Text + "%'").ToList();
+                }
+            }
+        }
     }
 }
