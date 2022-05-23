@@ -25,19 +25,31 @@
                 <ItemsControl x:Name="ListViewStorage" ItemsSource="{Binding Склад}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Width="275" Height="350" CornerRadius="20" Background="#fdbf49">
-                                <StackPanel>
-                                    <Border Width="250" Height="250" CornerRadius="20" Margin="10">
-                                        <Border.Effect>
-                                            <DropShadowEffect ShadowDepth="1"/>
-                                        </Border.Effect>
-                                        <Border.Background>
-                                            <ImageBrush ImageSource="{Binding Фото}"/>
-                                        </Border.Background>
-                                    </Border>
-                                    <TextBlock Margin="5" Text="{Binding Адрес_склада}" FontSize="24" FontFamily="Bahnschrift Condensed" HorizontalAlignment="Center" Foreground="#262537"/>
-                                    <TextBlock Margin="5" Text="{Binding Вместительность}" FontSize="24" FontFamily="Bahnschrift Condensed" HorizontalAlignment="Center" Foreground="#262537"/>
-                                </StackPanel>
+                            <Border Width="275" Height="350" CornerRadius="20">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="#fdbf49"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FEDC9B"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <Button x:Name="testbutton" Width="275" Height="350" Tag="{Binding Номер_склада}" Background="Transparent" Click="Button_Click" Style="{DynamicResource ObjectButton}">
+                                    <StackPanel>
+                                        <Border Width="250" Height="250" CornerRadius="20" Margin="10">
+                                            <Border.Effect>
+                                                <DropShadowEffect ShadowDepth="1"/>
+                                            </Border.Effect>
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding Фото}"/>
+                                            </Border.Background>
+                                        </Border>
+                                        <TextBlock Margin="5" Text="{Binding Адрес_склада}" FontSize="24" FontFamily="Bahnschrift Condensed" HorizontalAlignment="Center" Foreground="#262537"/>
+                                        <TextBlock Margin="5" Text="{Binding Вместительность}" FontSize="24" FontFamily="Bahnschrift Condensed" HorizontalAlignment="Center" Foreground="#262537"/>
+                                    </StackPanel>
+                                </Button>
                             </Border>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -52,6 +64,7 @@
                         </Style>
                     </ItemsControl.ItemContainerStyle>
                 </ItemsControl>
+                
             </StackPanel>
         </ScrollViewer>
         

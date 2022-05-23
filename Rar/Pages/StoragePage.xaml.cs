@@ -18,6 +18,9 @@ namespace Rar.Pages
     /// <summary>
     /// Логика взаимодействия для StoragePage.xaml
     /// </summary>
+    /// 
+
+    
     public partial class StoragePage : Page
     {
         public StoragePage()
@@ -27,7 +30,6 @@ namespace Rar.Pages
             {
                 ListViewStorage.ItemsSource = context.Склад.ToList();
             }
-                
         }
 
         private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
@@ -48,6 +50,12 @@ namespace Rar.Pages
                     ListViewStorage.ItemsSource = context.Database.SqlQuery<Склад>("SELECT * FROM Склад WHERE Адрес_склада LIKE '%" + x.Text + "%'").ToList();
                 }
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBox.Show(((Button)e.OriginalSource).Tag.ToString());
         }
     }
 }
