@@ -23,9 +23,11 @@ namespace Rar.Pages
     
     public partial class StoragePage : Page
     {
-        public StoragePage()
+        Frame CurrentFrame;
+        public StoragePage(Frame frame)
         {
             InitializeComponent();
+            CurrentFrame = frame;
             using (RarEntities context = new RarEntities())
             {
                 ListViewStorage.ItemsSource = context.Склад.ToList();
@@ -54,8 +56,7 @@ namespace Rar.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            MessageBox.Show(((Button)e.OriginalSource).Tag.ToString());
+            CurrentFrame.Navigate(new StorageAddEditPage(Convert.ToInt32(((Button)e.OriginalSource).Tag.ToString())));
         }
     }
 }

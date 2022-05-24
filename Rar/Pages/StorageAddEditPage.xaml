@@ -1,0 +1,99 @@
+﻿<Page x:Class="Rar.Pages.StorageAddEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rar.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1050"
+      Title="StorageAddEditPage"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Border Width="180" Height="180" CornerRadius="20" Grid.Row="1" HorizontalAlignment="Left" Margin="10">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="1"/>
+            </Border.Effect>
+            <Border.Background>
+                <ImageBrush ImageSource="/Pictures/storage/1.png"/>
+            </Border.Background>
+        </Border>
+
+        <TextBlock Text="Адрес склада"
+                   FontSize="24"
+                   FontFamily="Bahnschrift Condensed"
+                   Margin="15"
+                   Foreground="White"
+                   Grid.Row="2"/>
+        <TextBox x:Name="AdresTB"
+                 Style="{StaticResource InputTextBox}"
+                 Grid.Row="2"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"
+                 Margin="10,40,10,10"
+                 FontSize="24"
+                 FontFamily="Bahnschrift Condensed"/>
+
+        <TextBlock Text="Вместительность склада (м²)"
+                   FontSize="24"
+                   FontFamily="Bahnschrift Condensed"
+                   Margin="15"
+                   Foreground="White"
+                   Grid.Row="3"/>
+        <TextBox x:Name="VmestitelnostTB"
+                 Style="{StaticResource InputTextBox}"
+                 Grid.Row="3"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"
+                 Margin="10,40,10,10"
+                 FontSize="24"
+                 FontFamily="Bahnschrift Condensed"/>
+
+        <TextBlock Text="Заведующий складом"
+                   FontSize="24"
+                   FontFamily="Bahnschrift Condensed"
+                   Margin="15"
+                   Foreground="White"
+                   Grid.Row="4"/>
+        <TextBox x:Name="ZavTB"
+                 Style="{StaticResource InputTextBox}"
+                 Grid.Row="4"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"
+                 Margin="10,40,10,10"
+                 FontSize="24"
+                 FontFamily="Bahnschrift Condensed"/>
+
+        <Button x:Name="SaveButton"
+                    Click="SaveButton_Click"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Row="5"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="10,5"
+                    Width="64"
+                    Height="64"
+                    FontSize="32"
+                    FontFamily="Bahnschrift Condensed">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel HorizontalAlignment="Center">
+                <Image Source="/Pictures/control/save.png" StretchDirection="DownOnly"/>
+            </StackPanel>
+        </Button>
+
+
+    </Grid>
+</Page>

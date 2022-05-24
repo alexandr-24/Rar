@@ -75,6 +75,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBRar.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\StorageAddEditPage.xaml.cs">
+      <DependentUpon>StorageAddEditPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\StoragePage.xaml.cs">
       <DependentUpon>StoragePage.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\StorageAddEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\StoragePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -184,6 +191,7 @@
       <DependentUpon>DBRar.edmx</DependentUpon>
       <LastGenOutput>DBRar.cs</LastGenOutput>
     </Content>
+    <Resource Include="Pictures\control\save.png" />
     <Resource Include="Pictures\storage\3.png" />
     <Resource Include="Pictures\storage\1.png" />
     <Resource Include="Pictures\storage\2.png" />

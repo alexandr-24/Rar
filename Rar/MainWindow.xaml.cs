@@ -55,7 +55,7 @@ namespace Rar
         private void StorageButton_Click(object sender, RoutedEventArgs e)
         {
             Grid.SetRow(SelectedButtonFrame, 3);
-            MainFrame.Navigate(new StoragePage());
+            MainFrame.Navigate(new StoragePage(MainFrame));
         }
 
         private void ClientButton_Click(object sender, RoutedEventArgs e)
