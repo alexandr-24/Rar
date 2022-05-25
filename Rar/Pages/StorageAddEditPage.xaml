@@ -19,12 +19,12 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <Border Width="180" Height="180" CornerRadius="20" Grid.Row="1" HorizontalAlignment="Left" Margin="10">
+        <Border Width="300" Height="200" CornerRadius="20" Grid.Row="1" HorizontalAlignment="Center">
             <Border.Effect>
                 <DropShadowEffect ShadowDepth="1"/>
             </Border.Effect>
             <Border.Background>
-                <ImageBrush ImageSource="/Pictures/storage/1.png"/>
+                <ImageBrush x:Name="Image"/>
             </Border.Background>
         </Border>
 

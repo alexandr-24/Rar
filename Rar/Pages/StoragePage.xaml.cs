@@ -56,7 +56,7 @@ namespace Rar.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CurrentFrame.Navigate(new StorageAddEditPage(Convert.ToInt32(((Button)e.OriginalSource).Tag.ToString())));
+            CurrentFrame.Navigate(new StorageAddEditPage(Convert.ToInt32(((Button)e.OriginalSource).Tag.ToString()), CurrentFrame));
         }
     }
 }
