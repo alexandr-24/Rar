@@ -51,18 +51,17 @@ namespace Rar.Pages
                     Adres.Text = currentStorage.Адрес_склада;
                     Vmestitelnost.Text = currentStorage.Вместительность.Remove(currentStorage.Вместительность.Length - 2, 2);
                     Zav.Text = currentStorage.Зав_складом;
-                    Image.ImageSource = new BitmapImage(new Uri("pack://application:,,," + currentStorage.Фото, UriKind.Absolute));
+
+                    if (currentStorage.Фото != null)
+                    {
+                        Image.ImageSource = new BitmapImage(new Uri("pack://application:,,," + currentStorage.Фото, UriKind.Absolute));
+                    }
                 }
             }
             else
             {
                 currentStorage = new Склад();
-                /*
-                using (RarEntities context = new RarEntities())
-                {
-                    currentStorage.Номер_склада = context.Склад.LastOrDefault().Номер_склада;
-                }
-                */
+                DeleteButton.Visibility = Visibility.Hidden;
             }
         }
 
@@ -88,6 +87,15 @@ namespace Rar.Pages
             currentFrame.Navigate(new StoragePage(currentFrame));
         }
 
-        
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            using (RarEntities context = new RarEntities())
+            {
+                currentStorage = context.Склад.Where(s => s.Номер_склада == id).FirstOrDefault<Склад>();
+                context.Склад.Remove(currentStorage);
+                context.SaveChanges();
+            }
+            currentFrame.Navigate(new StoragePage(currentFrame));
+        }
     }
 }

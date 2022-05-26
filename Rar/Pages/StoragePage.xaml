@@ -12,13 +12,36 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
+
+        <Button x:Name="AddButton"
+                    Click="AddButton_Click"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="50,10,10,10"
+                    Width="40"
+                    Height="40"
+                    FontSize="32"
+                    FontFamily="Bahnschrift Condensed">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel>
+                <Image Source="/Pictures/control/add.png" StretchDirection="DownOnly"/>
+            </StackPanel>
+        </Button>
+
         <TextBox x:Name="SearchTB"
                  Style="{StaticResource SearchTextBox}"
                  Width="250"
                  Height="50"
                  VerticalAlignment="Center"
                  HorizontalAlignment="Left"
-                 Margin="20" TextChanged="SearchTB_TextChanged"/>
+                 Margin="80,20,20,20" TextChanged="SearchTB_TextChanged"/>
         
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
             <StackPanel Margin="26.5,0">

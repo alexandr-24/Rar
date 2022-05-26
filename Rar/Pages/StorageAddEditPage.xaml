@@ -94,6 +94,27 @@
             </StackPanel>
         </Button>
 
+        <Button x:Name="DeleteButton"
+                    Click="DeleteButton_Click"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Row="5"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="10,5"
+                    Width="64"
+                    Height="64"
+                    FontSize="32"
+                    FontFamily="Bahnschrift Condensed">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel HorizontalAlignment="Center">
+                <Image Source="/Pictures/control/delete.png" StretchDirection="DownOnly"/>
+            </StackPanel>
+        </Button>
+
 
     </Grid>
 </Page>
