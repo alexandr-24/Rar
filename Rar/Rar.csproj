@@ -191,6 +191,7 @@
       <DependentUpon>DBRar.edmx</DependentUpon>
       <LastGenOutput>DBRar.cs</LastGenOutput>
     </Content>
+    <Resource Include="Pictures\storage\default_storage.jpeg" />
     <Resource Include="Pictures\control\delete.png" />
     <Resource Include="Pictures\control\add.png" />
     <Resource Include="Pictures\control\save.png" />

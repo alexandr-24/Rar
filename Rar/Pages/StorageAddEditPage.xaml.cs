@@ -56,11 +56,16 @@ namespace Rar.Pages
                     {
                         Image.ImageSource = new BitmapImage(new Uri("pack://application:,,," + currentStorage.Фото, UriKind.Absolute));
                     }
+                    else
+                    {
+                        Image.ImageSource = new BitmapImage(new Uri("pack://application:,,," + "../Pictures/storage/default_storage.jpeg", UriKind.Absolute));
+                    }
                 }
             }
             else
             {
                 currentStorage = new Склад();
+                Image.ImageSource = new BitmapImage(new Uri("pack://application:,,," + "../Pictures/storage/default_storage.jpeg", UriKind.Absolute));
                 DeleteButton.Visibility = Visibility.Hidden;
             }
         }
