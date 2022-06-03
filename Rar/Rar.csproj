@@ -81,6 +81,9 @@
     <Compile Include="Pages\StoragePage.xaml.cs">
       <DependentUpon>StoragePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TovarPage.xaml.cs">
+      <DependentUpon>TovarPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>DBRar.tt</DependentUpon>
     </Compile>
@@ -132,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\StoragePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TovarPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,6 +198,10 @@
       <DependentUpon>DBRar.edmx</DependentUpon>
       <LastGenOutput>DBRar.cs</LastGenOutput>
     </Content>
+    <Resource Include="Pictures\tovar\1.png" />
+    <Resource Include="Pictures\tovar\2.png" />
+    <Resource Include="Pictures\tovar\3.png" />
+    <Resource Include="Pictures\tovar\4.png" />
     <Resource Include="Pictures\storage\default_storage.jpeg" />
     <Resource Include="Pictures\control\delete.png" />
     <Resource Include="Pictures\control\add.png" />

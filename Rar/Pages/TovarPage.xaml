@@ -1,0 +1,92 @@
+﻿<Page x:Class="Rar.Pages.TovarPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rar.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1050"
+      Title="TovarPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="AddButton"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="50,10,10,10"
+                    Width="40"
+                    Height="40"
+                    FontSize="32"
+                    FontFamily="Bahnschrift Condensed">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel>
+                <Image Source="/Pictures/control/add.png" StretchDirection="DownOnly"/>
+            </StackPanel>
+        </Button>
+
+        <TextBox x:Name="SearchTB"
+                 Style="{StaticResource SearchTextBox}"
+                 Width="250"
+                 Height="50"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"
+                 Margin="80,20,20,20"/>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
+            <StackPanel Margin="26.5,0">
+                <ItemsControl x:Name="ListViewStorage" ItemsSource="{Binding Склад}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="275" Height="350" CornerRadius="20">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="#fdbf49"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FEDC9B"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <Button x:Name="testbutton" Width="275" Height="350" Tag="{Binding Номер_склада}" Background="Transparent" Click="Button_Click" Style="{DynamicResource ObjectButton}">
+                                    <StackPanel>
+                                        <Border Width="250" Height="250" CornerRadius="20" Margin="10">
+                                            <Border.Effect>
+                                                <DropShadowEffect ShadowDepth="1"/>
+                                            </Border.Effect>
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding Фото}"/>
+                                            </Border.Background>
+                                        </Border>
+                                        <TextBlock Margin="5" Text="{Binding Адрес_склада}" FontSize="24" FontFamily="Bahnschrift Condensed" HorizontalAlignment="Center" Foreground="#262537"/>
+                                        <TextBlock Margin="5" Text="{Binding Вместительность}" FontSize="24" FontFamily="Bahnschrift Condensed" HorizontalAlignment="Center" Foreground="#262537"/>
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemContainerStyle>
+                        <Style>
+                            <Setter Property="FrameworkElement.Margin" Value="25"/>
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
