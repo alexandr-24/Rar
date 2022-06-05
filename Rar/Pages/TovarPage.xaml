@@ -40,25 +40,26 @@
                  Height="50"
                  VerticalAlignment="Center"
                  HorizontalAlignment="Left"
-                 Margin="80,20,20,20"/>
+                 Margin="80,20,20,20"
+                 TextChanged="SearchTB_TextChanged"/>
 
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
             <StackPanel Margin="26.5,0">
-                <ItemsControl x:Name="ListViewStorage" ItemsSource="{Binding Склад}">
+                <ItemsControl x:Name="ListViewStorage" ItemsSource="{Binding Товар}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border Width="275" Height="350" CornerRadius="20">
                                 <Border.Style>
                                     <Style TargetType="Border">
-                                        <Setter Property="Background" Value="#fdbf49"/>
+                                        <Setter Property="Background" Value="#4689e4"/>
                                         <Style.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#FEDC9B"/>
+                                                <Setter Property="Background" Value="#389ACF"/>
                                             </Trigger>
                                         </Style.Triggers>
                                     </Style>
                                 </Border.Style>
-                                <Button x:Name="testbutton" Width="275" Height="350" Tag="{Binding Номер_склада}" Background="Transparent" Click="Button_Click" Style="{DynamicResource ObjectButton}">
+                                <Button x:Name="testbutton" Width="275" Height="350" Tag="{Binding Код_товара}" Background="Transparent" Style="{DynamicResource ObjectTovarButton}">
                                     <StackPanel>
                                         <Border Width="250" Height="250" CornerRadius="20" Margin="10">
                                             <Border.Effect>
@@ -68,8 +69,8 @@
                                                 <ImageBrush ImageSource="{Binding Фото}"/>
                                             </Border.Background>
                                         </Border>
-                                        <TextBlock Margin="5" Text="{Binding Адрес_склада}" FontSize="24" FontFamily="Bahnschrift Condensed" HorizontalAlignment="Center" Foreground="#262537"/>
-                                        <TextBlock Margin="5" Text="{Binding Вместительность}" FontSize="24" FontFamily="Bahnschrift Condensed" HorizontalAlignment="Center" Foreground="#262537"/>
+                                        <TextBlock Margin="5" Text="{Binding Название}" FontSize="18" FontFamily="Bahnschrift Condensed" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Margin="5" Text="{Binding Цена}" FontSize="24" FontFamily="Bahnschrift Condensed" HorizontalAlignment="Center" Foreground="White"/>
                                     </StackPanel>
                                 </Button>
                             </Border>
@@ -86,6 +87,8 @@
                         </Style>
                     </ItemsControl.ItemContainerStyle>
                 </ItemsControl>
+
+                
             </StackPanel>
         </ScrollViewer>
     </Grid>

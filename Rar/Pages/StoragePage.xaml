@@ -41,7 +41,8 @@
                  Height="50"
                  VerticalAlignment="Center"
                  HorizontalAlignment="Left"
-                 Margin="80,20,20,20" TextChanged="SearchTB_TextChanged"/>
+                 Margin="80,20,20,20" 
+                 TextChanged="SearchTB_TextChanged"/>
         
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
             <StackPanel Margin="26.5,0">
@@ -59,7 +60,7 @@
                                         </Style.Triggers>
                                     </Style>
                                 </Border.Style>
-                                <Button x:Name="testbutton" Width="275" Height="350" Tag="{Binding Номер_склада}" Background="Transparent" Click="Button_Click" Style="{DynamicResource ObjectButton}">
+                                <Button x:Name="testbutton" Width="275" Height="350" Tag="{Binding Номер_склада}" Background="Transparent" Click="Button_Click" Style="{DynamicResource ObjectStorageButton}">
                                     <StackPanel>
                                         <Border Width="250" Height="250" CornerRadius="20" Margin="10">
                                             <Border.Effect>
@@ -87,7 +88,6 @@
                         </Style>
                     </ItemsControl.ItemContainerStyle>
                 </ItemsControl>
-                
             </StackPanel>
         </ScrollViewer>
         

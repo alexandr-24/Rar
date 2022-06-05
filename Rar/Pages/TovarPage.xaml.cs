@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,29 @@ namespace Rar.Pages
         public TovarPage()
         {
             InitializeComponent();
+            using (RarEntities context = new RarEntities())
+            {
+                ListViewStorage.ItemsSource = context.Товар.ToList();
+            }
+        }
+
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox x = (TextBox)SearchTB.Template.FindName("SearchTB", SearchTB);
+            if (x.Text == "")
+            {
+                using (RarEntities context = new RarEntities())
+                {
+                    ListViewStorage.ItemsSource = context.Товар.ToList();
+                }
+            }
+            else
+            {
+                using (RarEntities context = new RarEntities())
+                {
+                    ListViewStorage.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар WHERE Название LIKE '%" + x.Text + "%'").ToList();
+                }
+            }
         }
     }
 }

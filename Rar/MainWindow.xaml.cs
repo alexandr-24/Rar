@@ -26,6 +26,12 @@ namespace Rar
         public MainWindow()
         {
             InitializeComponent();
+
+            // Пробное подключение к БД чтобы открытие других страниц не лагало
+            using (RarEntities context = new RarEntities())
+            {
+                context.Товар.ToList();
+            }
         }
 
         private void headerThumb_DragDelta(object sender, DragDeltaEventArgs e)
@@ -51,7 +57,7 @@ namespace Rar
         private void GoodsButton_Click(object sender, RoutedEventArgs e)
         {
             Grid.SetRow(SelectedButtonFrame, 2);
-            MainFrame.Navigate(null);
+            MainFrame.Navigate(new TovarPage());
         }
         private void StorageButton_Click(object sender, RoutedEventArgs e)
         {

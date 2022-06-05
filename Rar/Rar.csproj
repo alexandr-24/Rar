@@ -81,6 +81,9 @@
     <Compile Include="Pages\StoragePage.xaml.cs">
       <DependentUpon>StoragePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TovarAddEditPage.xaml.cs">
+      <DependentUpon>TovarAddEditPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\TovarPage.xaml.cs">
       <DependentUpon>TovarPage.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\StoragePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TovarAddEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
