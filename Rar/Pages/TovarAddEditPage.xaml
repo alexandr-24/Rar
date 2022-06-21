@@ -113,7 +113,6 @@
                  FontFamily="Bahnschrift Condensed"/>
 
         <Button x:Name="SaveButton"
-                Click="SaveButton_Click"
                 Style="{StaticResource MenuButton}"
                 Grid.Row="5"
                 Grid.ColumnSpan="2"
@@ -135,7 +134,6 @@
         </Button>
 
         <Button x:Name="DeleteButton"
-                Click="DeleteButton_Click"
                 Style="{StaticResource MenuButton}"
                 Grid.Row="5"
                 Grid.ColumnSpan="2"

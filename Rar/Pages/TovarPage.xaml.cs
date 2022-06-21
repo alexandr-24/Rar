@@ -25,28 +25,110 @@ namespace Rar.Pages
         {
             InitializeComponent();
             using (RarEntities context = new RarEntities())
+            {              
+                CategoryCB.Items.Add("Все");
+                foreach(var i in context.Категория.ToList())
+                {
+                    CategoryCB.Items.Add(i.Название);
+                }
+            }
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            CategoryCB.SelectedIndex = 0;
+        }
+
+        private void UpdateListViewTovar()
+        {
+            TextBox x = (TextBox)SearchTB.Template.FindName("SearchTB", SearchTB);
+
+            using (RarEntities context = new RarEntities())
             {
-                ListViewStorage.ItemsSource = context.Товар.ToList();
+                Категория category = context.Категория.FirstOrDefault(k => k.Название == (string)CategoryCB.SelectedItem);
+
+                if (category == null)
+                {
+                    if (x.Text == "")
+                    {
+                        ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар").ToList();
+                    }
+                    else
+                    {
+                        ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар WHERE Название LIKE '%" + x.Text + "%'").ToList();
+                    }
+                }
+                else
+                {
+                    if (x.Text == "")
+                    {
+                        ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар WHERE Код_категории = " + category.Код_категории).ToList();
+                    }
+                    else
+                    {
+                        ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар WHERE Код_категории = " + category.Код_категории + " AND Название LIKE '%" + x.Text + "%'").ToList();
+                    }
+                }
             }
         }
 
         private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
         {
+            UpdateListViewTovar();
+            /*
             TextBox x = (TextBox)SearchTB.Template.FindName("SearchTB", SearchTB);
             if (x.Text == "")
             {
                 using (RarEntities context = new RarEntities())
                 {
-                    ListViewStorage.ItemsSource = context.Товар.ToList();
+                    ListViewTovar.ItemsSource = context.Товар.ToList();
                 }
             }
             else
             {
                 using (RarEntities context = new RarEntities())
                 {
-                    ListViewStorage.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар WHERE Название LIKE '%" + x.Text + "%'").ToList();
+                    ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар WHERE Название LIKE '%" + x.Text + "%'").ToList();
                 }
             }
+            */
         }
+
+        private void CategoryCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateListViewTovar();
+            /*
+            TextBox x = (TextBox)SearchTB.Template.FindName("SearchTB", SearchTB);
+
+            using (RarEntities context = new RarEntities())
+            {
+                Категория category = context.Категория.FirstOrDefault(k => k.Название == (string)CategoryCB.SelectedItem);
+
+                if (category == null)
+                {
+                    if (x.Text == "")
+                    {
+                        ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар").ToList();
+                    }
+                    else
+                    {
+                        ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар WHERE Название LIKE '%" + x.Text + "%'").ToList();
+                    }
+                }
+                else
+                {
+                    if (x.Text == "")
+                    {
+                        ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар WHERE Код_категории = " + category.Код_категории).ToList();
+                    }
+                    else
+                    {
+                        ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар WHERE Код_категории = " + category.Код_категории + " AND Название LIKE '%" + x.Text + "%'").ToList();
+                    }
+                }
+            }
+            */
+        }
+
+        
     }
 }
