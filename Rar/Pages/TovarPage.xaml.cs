@@ -21,9 +21,11 @@ namespace Rar.Pages
     /// </summary>
     public partial class TovarPage : Page
     {
-        public TovarPage()
+        Frame CurrentFrame;
+        public TovarPage(Frame frame)
         {
             InitializeComponent();
+            CurrentFrame = frame;
             using (RarEntities context = new RarEntities())
             {              
                 CategoryCB.Items.Add("Все");
@@ -74,61 +76,21 @@ namespace Rar.Pages
         private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             UpdateListViewTovar();
-            /*
-            TextBox x = (TextBox)SearchTB.Template.FindName("SearchTB", SearchTB);
-            if (x.Text == "")
-            {
-                using (RarEntities context = new RarEntities())
-                {
-                    ListViewTovar.ItemsSource = context.Товар.ToList();
-                }
-            }
-            else
-            {
-                using (RarEntities context = new RarEntities())
-                {
-                    ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар WHERE Название LIKE '%" + x.Text + "%'").ToList();
-                }
-            }
-            */
         }
 
         private void CategoryCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateListViewTovar();
-            /*
-            TextBox x = (TextBox)SearchTB.Template.FindName("SearchTB", SearchTB);
-
-            using (RarEntities context = new RarEntities())
-            {
-                Категория category = context.Категория.FirstOrDefault(k => k.Название == (string)CategoryCB.SelectedItem);
-
-                if (category == null)
-                {
-                    if (x.Text == "")
-                    {
-                        ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар").ToList();
-                    }
-                    else
-                    {
-                        ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар WHERE Название LIKE '%" + x.Text + "%'").ToList();
-                    }
-                }
-                else
-                {
-                    if (x.Text == "")
-                    {
-                        ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар WHERE Код_категории = " + category.Код_категории).ToList();
-                    }
-                    else
-                    {
-                        ListViewTovar.ItemsSource = context.Database.SqlQuery<Товар>("SELECT * FROM Товар WHERE Код_категории = " + category.Код_категории + " AND Название LIKE '%" + x.Text + "%'").ToList();
-                    }
-                }
-            }
-            */
         }
 
-        
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentFrame.Navigate(new TovarAddEditPage(-1, CurrentFrame));
+        }
+
+        private void testbutton_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentFrame.Navigate(new TovarAddEditPage(Convert.ToInt32(((Button)e.OriginalSource).Tag.ToString()), CurrentFrame));
+        }
     }
 }

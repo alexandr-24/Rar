@@ -57,7 +57,7 @@ namespace Rar
         private void GoodsButton_Click(object sender, RoutedEventArgs e)
         {
             Grid.SetRow(SelectedButtonFrame, 2);
-            MainFrame.Navigate(new TovarPage());
+            MainFrame.Navigate(new TovarPage(MainFrame));
         }
         private void StorageButton_Click(object sender, RoutedEventArgs e)
         {

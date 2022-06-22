@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Rar.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1050"
-      Title="TovarAddEditPage">
+      Title="TovarAddEditPage" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -54,11 +54,10 @@
                    Margin="15"
                    Foreground="White"
                    Grid.Row="3"/>
-        <TextBox x:Name="CategoryTB"
-                 Style="{StaticResource InputTextBox}"
+        <ComboBox x:Name="CategoryCB"
                  Grid.Row="3"
                  VerticalAlignment="Center"
-                 HorizontalAlignment="Left"
+                 HorizontalAlignment="Stretch"
                  Margin="10,40,10,10"
                  FontSize="24"
                  FontFamily="Bahnschrift Condensed"/>
@@ -114,6 +113,7 @@
 
         <Button x:Name="SaveButton"
                 Style="{StaticResource MenuButton}"
+                Click="SaveButton_Click"
                 Grid.Row="5"
                 Grid.ColumnSpan="2"
                 HorizontalAlignment="Center"
@@ -135,6 +135,7 @@
 
         <Button x:Name="DeleteButton"
                 Style="{StaticResource MenuButton}"
+                Click="DeleteButton_Click"
                 Grid.Row="5"
                 Grid.ColumnSpan="2"
                 HorizontalAlignment="Right"

@@ -14,16 +14,17 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="AddButton"
-                    Style="{StaticResource MenuButton}"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Margin="50,10,10,10"
-                    Width="40"
-                    Height="40"
-                    FontSize="32"
-                    FontFamily="Bahnschrift Condensed">
+                Style="{StaticResource MenuButton}"
+                Click="AddButton_Click"
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="50,10,10,10"
+                Width="40"
+                Height="40"
+                FontSize="32"
+                FontFamily="Bahnschrift Condensed">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -66,7 +67,7 @@
                                         </Style.Triggers>
                                     </Style>
                                 </Border.Style>
-                                <Button x:Name="testbutton" Width="275" Height="350" Tag="{Binding Код_товара}" Background="Transparent" Style="{DynamicResource ObjectTovarButton}">
+                                <Button x:Name="testbutton" Width="275" Height="350" Tag="{Binding Код_товара}" Background="Transparent" Style="{DynamicResource ObjectTovarButton}" Click="testbutton_Click">
                                     <StackPanel>
                                         <Border Width="250" Height="250" CornerRadius="20" Margin="10">
                                             <Border.Effect>
@@ -94,8 +95,6 @@
                         </Style>
                     </ItemsControl.ItemContainerStyle>
                 </ItemsControl>
-
-                
             </StackPanel>
         </ScrollViewer>
     </Grid>
