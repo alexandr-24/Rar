@@ -28,6 +28,7 @@ namespace Rar
         public string Характеристики { get; set; }
         public string Производитель { get; set; }
         public string Фото { get; set; }
+        public string Штрих_код { get; set; }
     
         public virtual Категория Категория { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

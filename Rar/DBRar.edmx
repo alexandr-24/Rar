@@ -60,10 +60,10 @@
             <PropertyRef Name="Номер_склада" />
           </Key>
           <Property Name="Номер_склада" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Адрес_склада" Type="nvarchar" MaxLength="100" />
+          <Property Name="Адрес_склада" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Вместительность" Type="nvarchar" MaxLength="100" />
           <Property Name="Зав_складом" Type="nvarchar" MaxLength="100" />
-          <Property Name="Фото" Type="nvarchar" MaxLength="100" />
+          <Property Name="Фото" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Содержимое_заказа">
           <Key>
@@ -85,6 +85,7 @@
           <Property Name="Характеристики" Type="nvarchar" MaxLength="1000" />
           <Property Name="Производитель" Type="nvarchar" MaxLength="100" />
           <Property Name="Фото" Type="nvarchar" MaxLength="100" />
+          <Property Name="Штрих_код" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <Association Name="FK__Заказ__Код_клиен__30F848ED">
           <End Role="Клиент" Type="Self.Клиент" Multiplicity="1" />
@@ -98,7 +99,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Размещени__Код_т__2B3F6F97">
+        <Association Name="FK__Размещени__Код_т__5FB337D6">
           <End Role="Товар" Type="Self.Товар" Multiplicity="1" />
           <End Role="Размещение" Type="Self.Размещение" Multiplicity="*" />
           <ReferentialConstraint>
@@ -110,7 +111,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Размещени__Номер__2C3393D0">
+        <Association Name="FK__Размещени__Номер__60A75C0F">
           <End Role="Склад" Type="Self.Склад" Multiplicity="1" />
           <End Role="Размещение" Type="Self.Размещение" Multiplicity="*" />
           <ReferentialConstraint>
@@ -122,7 +123,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Содержимо__Код_т__34C8D9D1">
+        <Association Name="FK__Содержимо__Код_т__6477ECF3">
           <End Role="Товар" Type="Self.Товар" Multiplicity="1" />
           <End Role="Содержимое_заказа" Type="Self.Содержимое_заказа" Multiplicity="*" />
           <ReferentialConstraint>
@@ -134,7 +135,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Содержимо__Номер__33D4B598">
+        <Association Name="FK__Содержимо__Номер__6383C8BA">
           <End Role="Заказ" Type="Self.Заказ" Multiplicity="1" />
           <End Role="Содержимое_заказа" Type="Self.Содержимое_заказа" Multiplicity="*" />
           <ReferentialConstraint>
@@ -146,7 +147,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Товар__Код_катег__267ABA7A">
+        <Association Name="FK__Товар__Код_катег__5CD6CB2B">
           <End Role="Категория" Type="Self.Категория" Multiplicity="1" />
           <End Role="Товар" Type="Self.Товар" Multiplicity="*" />
           <ReferentialConstraint>
@@ -171,23 +172,23 @@
             <End Role="Клиент" EntitySet="Клиент" />
             <End Role="Заказ" EntitySet="Заказ" />
           </AssociationSet>
-          <AssociationSet Name="FK__Размещени__Код_т__2B3F6F97" Association="Self.FK__Размещени__Код_т__2B3F6F97">
+          <AssociationSet Name="FK__Размещени__Код_т__5FB337D6" Association="Self.FK__Размещени__Код_т__5FB337D6">
             <End Role="Товар" EntitySet="Товар" />
             <End Role="Размещение" EntitySet="Размещение" />
           </AssociationSet>
-          <AssociationSet Name="FK__Размещени__Номер__2C3393D0" Association="Self.FK__Размещени__Номер__2C3393D0">
+          <AssociationSet Name="FK__Размещени__Номер__60A75C0F" Association="Self.FK__Размещени__Номер__60A75C0F">
             <End Role="Склад" EntitySet="Склад" />
             <End Role="Размещение" EntitySet="Размещение" />
           </AssociationSet>
-          <AssociationSet Name="FK__Содержимо__Код_т__34C8D9D1" Association="Self.FK__Содержимо__Код_т__34C8D9D1">
+          <AssociationSet Name="FK__Содержимо__Код_т__6477ECF3" Association="Self.FK__Содержимо__Код_т__6477ECF3">
             <End Role="Товар" EntitySet="Товар" />
             <End Role="Содержимое_заказа" EntitySet="Содержимое_заказа" />
           </AssociationSet>
-          <AssociationSet Name="FK__Содержимо__Номер__33D4B598" Association="Self.FK__Содержимо__Номер__33D4B598">
+          <AssociationSet Name="FK__Содержимо__Номер__6383C8BA" Association="Self.FK__Содержимо__Номер__6383C8BA">
             <End Role="Заказ" EntitySet="Заказ" />
             <End Role="Содержимое_заказа" EntitySet="Содержимое_заказа" />
           </AssociationSet>
-          <AssociationSet Name="FK__Товар__Код_катег__267ABA7A" Association="Self.FK__Товар__Код_катег__267ABA7A">
+          <AssociationSet Name="FK__Товар__Код_катег__5CD6CB2B" Association="Self.FK__Товар__Код_катег__5CD6CB2B">
             <End Role="Категория" EntitySet="Категория" />
             <End Role="Товар" EntitySet="Товар" />
           </AssociationSet>
@@ -257,11 +258,11 @@
             <PropertyRef Name="Номер_склада" />
           </Key>
           <Property Name="Номер_склада" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Адрес_склада" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Адрес_склада" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Вместительность" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Зав_складом" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Размещение" Relationship="Self.FK__Размещени__Номер__2C3393D0" FromRole="Склад" ToRole="Размещение" />
-          <Property Name="Фото" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Фото" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Содержимое_заказа">
           <Key>
@@ -288,6 +289,7 @@
           <NavigationProperty Name="Категория" Relationship="Self.FK__Товар__Код_катег__267ABA7A" FromRole="Товар" ToRole="Категория" />
           <NavigationProperty Name="Размещение" Relationship="Self.FK__Размещени__Код_т__2B3F6F97" FromRole="Товар" ToRole="Размещение" />
           <NavigationProperty Name="Содержимое_заказа" Relationship="Self.FK__Содержимо__Код_т__34C8D9D1" FromRole="Товар" ToRole="Содержимое_заказа" />
+          <Property Name="Штрих_код" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__Заказ__Код_клиен__30F848ED">
           <End Role="Клиент" Type="Self.Клиент" Multiplicity="1" />
@@ -478,6 +480,7 @@
           <EntitySetMapping Name="Товар">
             <EntityTypeMapping TypeName="RarModel.Товар">
               <MappingFragment StoreEntitySet="Товар">
+                <ScalarProperty Name="Штрих_код" ColumnName="Штрих_код" />
                 <ScalarProperty Name="Код_товара" ColumnName="Код_товара" />
                 <ScalarProperty Name="Код_категории" ColumnName="Код_категории" />
                 <ScalarProperty Name="Название" ColumnName="Название" />

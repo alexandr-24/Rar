@@ -24,6 +24,7 @@ namespace Rar.Pages
         Frame currentFrame;
         int id;
         TextBox Name;
+        TextBox Barcode;
         ComboBox Category;
         TextBox Price;
         TextBox Proizvoditel;
@@ -46,6 +47,7 @@ namespace Rar.Pages
         private void LoadData(int id)
         {
             Name = (TextBox)NameTB.Template.FindName("InputTB", NameTB);
+            Barcode = (TextBox)BarcodeTB.Template.FindName("InputTB", BarcodeTB);
             Category = CategoryCB;
             Price = (TextBox)PriceTB.Template.FindName("InputTB", PriceTB);
             Proizvoditel = (TextBox)ProizvoditelTB.Template.FindName("InputTB", ProizvoditelTB);
@@ -65,6 +67,7 @@ namespace Rar.Pages
                 {
                     currentTovar = context.Товар.Where(s => s.Код_товара == id).FirstOrDefault<Товар>();
                     Name.Text = currentTovar.Название;
+                    Barcode.Text = currentTovar.Штрих_код;
                     Price.Text = Convert.ToString (currentTovar.Цена);
                     Proizvoditel.Text = currentTovar.Производитель;
                     Harakteristiki.Text = currentTovar.Характеристики;
@@ -92,6 +95,7 @@ namespace Rar.Pages
                 if (id != -1)
                     currentTovar = context.Товар.Where(s => s.Код_товара == id).FirstOrDefault<Товар>();
                 currentTovar.Название = Name.Text;
+                currentTovar.Штрих_код = Barcode.Text;
                 currentTovar.Категория = context.Категория.FirstOrDefault(k => k.Название == (string)CategoryCB.SelectedItem);
                 currentTovar.Цена = Convert.ToDecimal(Price.Text.Replace('.', ','));
                 currentTovar.Производитель = Proizvoditel.Text;

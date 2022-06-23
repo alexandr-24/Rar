@@ -76,5 +76,11 @@ namespace Rar
             Grid.SetRow(SelectedButtonFrame, 5);
             MainFrame.Navigate(null);
         }
+
+        private void PriceTagButton_Click(object sender, RoutedEventArgs e)
+        {
+            Grid.SetRow(SelectedButtonFrame, 6);
+            MainFrame.Navigate(new PriceTagPage());
+        }
     }
 }

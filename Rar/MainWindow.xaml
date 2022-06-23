@@ -23,6 +23,7 @@
                 <RowDefinition Height="90"/>
                 <RowDefinition Height="90"/>
                 <RowDefinition Height="90"/>
+                <RowDefinition Height="90"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             
@@ -139,10 +140,20 @@
                     FontSize="28"
                     FontFamily="Bahnschrift Condensed"/>
 
+            <Button x:Name="PriceTagButton"
+                    Click="PriceTagButton_Click"
+                    Style="{StaticResource MenuButton}"
+                    Content="        Печать ценников"
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    Foreground="White"
+                    FontSize="28"
+                    FontFamily="Bahnschrift Condensed"/>
+
             <Frame x:Name="MainFrame"
                    Grid.Row="0"
                    Grid.Column="1"
-                   Grid.RowSpan="7"
+                   Grid.RowSpan="8"
                    Panel.ZIndex="-1"
                    NavigationUIVisibility="Hidden"/>
             
