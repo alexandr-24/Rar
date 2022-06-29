@@ -1,0 +1,62 @@
+﻿<Window x:Class="Rar.Windows.CompareWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rar.Windows"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Height="500" Width="800">
+    <Border Background="White" CornerRadius="25">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            
+            <Thumb x:Name="headerThumb"
+                Grid.RowSpan="6"
+                Grid.ColumnSpan="2"
+                Opacity="0"
+                Panel.ZIndex="-2"
+                Background="{x:Null}"
+                Foreground="{x:Null}"
+                DragDelta="headerThumb_DragDelta"/>
+            <Button x:Name="CloseButton"
+                    Click="CloseButton_Click"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Row="0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="10,5"
+                    Width="40"
+                    Height="40"
+                    FontSize="32"
+                    FontFamily="Bahnschrift Condensed">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <StackPanel>
+                    <Image Source="/Pictures/control/close.png" StretchDirection="DownOnly"/>
+                </StackPanel>
+            </Button>
+
+            <DataGrid x:Name="DG"
+                      Grid.Row="1"
+                      Margin="10"
+                      FontFamily="Bahnschrift Condensed"
+                      FontSize="24"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Характеристика/Товар"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Border>
+</Window>

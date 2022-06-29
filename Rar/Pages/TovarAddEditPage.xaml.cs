@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rar.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -70,7 +71,7 @@ namespace Rar.Pages
                     Barcode.Text = currentTovar.Штрих_код;
                     Price.Text = Convert.ToString (currentTovar.Цена);
                     Proizvoditel.Text = currentTovar.Производитель;
-                    Harakteristiki.Text = currentTovar.Характеристики;
+                    //Harakteristiki.Text = currentTovar.Характеристики;
 
                     CategoryCB.SelectedIndex = 0;
                     Категория category = context.Категория.FirstOrDefault(k => k.Название == (string)CategoryCB.SelectedItem);
@@ -92,6 +93,7 @@ namespace Rar.Pages
         {
             using (RarEntities context = new RarEntities())
             {
+                string h = currentTovar.Характеристики;
                 if (id != -1)
                     currentTovar = context.Товар.Where(s => s.Код_товара == id).FirstOrDefault<Товар>();
                 currentTovar.Название = Name.Text;
@@ -99,7 +101,8 @@ namespace Rar.Pages
                 currentTovar.Категория = context.Категория.FirstOrDefault(k => k.Название == (string)CategoryCB.SelectedItem);
                 currentTovar.Цена = Convert.ToDecimal(Price.Text.Replace('.', ','));
                 currentTovar.Производитель = Proizvoditel.Text;
-                currentTovar.Характеристики = Harakteristiki.Text;
+                currentTovar.Характеристики = h;
+                //currentTovar.Характеристики = Harakteristiki.Text;
 
                 if (id == -1)
                 {
@@ -121,6 +124,16 @@ namespace Rar.Pages
                 context.SaveChanges();
             }
             currentFrame.Navigate(new TovarPage(currentFrame));
+        }
+
+        private void HarakteristikiTB_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            EditHarakteristikiWindow w = new EditHarakteristikiWindow(currentTovar.Характеристики, (string)CategoryCB.SelectedItem);
+            
+            if(w.ShowDialog() == true)
+            {
+                currentTovar.Характеристики = w.GetHarakteristiki;
+            }
         }
     }
 }

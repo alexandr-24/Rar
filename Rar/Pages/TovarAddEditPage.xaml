@@ -118,6 +118,7 @@
                    Grid.Column="1"/>
         <TextBox x:Name="HarakteristikiTB"
                  Style="{StaticResource InputTextBox}"
+                 PreviewMouseDown="HarakteristikiTB_PreviewMouseDown"
                  Grid.Row="4"
                  Grid.Column="1"
                  VerticalAlignment="Center"
